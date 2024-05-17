@@ -78,7 +78,7 @@ model Order {
 
   shippingAddress   ShippingAddress? @relation(fields: [shippingAddressId], references: [id])
   shippingAddressId String?
-  // billingAddress    BillingAddress?  @relation(fields: [billingAddressId], references: [id])
+  billingAddress    BillingAddress?  @relation(fields: [billingAddressId], references: [id])
   billingAddressId  String?
 
   createdAt DateTime @default(now())
@@ -86,6 +86,18 @@ model Order {
 }
 
 model ShippingAddress {
+  id          String  @id @default(cuid())
+  name        String
+  street      String
+  city        String
+  postalCode  String
+  country     String
+  state       String?
+  phoneNumber String?
+  orders      Order[]
+}
+
+model BillingAddress {
   id          String  @id @default(cuid())
   name        String
   street      String
