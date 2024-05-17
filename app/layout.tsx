@@ -6,13 +6,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Recursive } from "next/font/google";
+import { constructMetadata } from "@/lib/utils";
 
 const recursive = Recursive({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Design Cover Phone",
-  description: "Design the back of your cover phone",
-};
+export const metadata: Metadata = constructMetadata();
 
 export default function RootLayout({
   children,
